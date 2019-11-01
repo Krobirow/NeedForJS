@@ -1,0 +1,156 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  border: 0; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+  content: ''; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse; }
+
+.hide {
+  display: none !important; }
+
+.show {
+  display: flex;
+  height: 100%; }
+
+.car,
+.enemy {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  background: transparent url("..//img/player1.png") center/cover no-repeat; }
+
+.game {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: transparent url("..//img/sand/sand.jpg") center/cover no-repeat; }
+
+.gameAreaSide,
+.gameAreaSide1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  height: 700px;
+  margin: auto;
+  margin-top: 62px;
+  overflow: hidden; }
+
+.trees,
+.palm {
+  position: absolute;
+  z-index: 600;
+  width: 120px;
+  height: 200px;
+  background: transparent url("..//img/palm_tree/palm0.png") center/cover no-repeat; }
+
+.gameArea {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  width: 300px;
+  height: 700px;
+  margin: auto;
+  margin-top: 62px;
+  overflow: hidden;
+  background: #222;
+  border-right: 5px #685d5d;
+  border-left: 5px #685d5d; }
+
+.line {
+  position: absolute;
+  left: 145px;
+  width: 10px;
+  height: 50px;
+  background: #fff; }
+
+.start {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 800;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  padding: 2rem 0;
+  margin: 0 auto;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  background-color: black; }
+
+.start > div {
+  padding: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: 2px dotted whitesmoke; }
+
+.score {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+  height: 30px;
+  padding: 1rem 0;
+  margin: auto;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: skyblue;
+  text-align: center;
+  background: black; }
+
+.audio {
+  margin: auto; }
+
+.navigation {
+  width: 300px;
+  height: 50px;
+  margin: auto; }
