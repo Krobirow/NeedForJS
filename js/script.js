@@ -12,7 +12,7 @@ const score = document.querySelector('.score'),
     navigation = document.querySelector('.navigation');
     
     
-    let audio = new Audio('../mus/mus3.mp3');
+    let audio = new Audio('../NeedForJS/mus/mus3.mp3');
 
     let topScore = localStorage.getItem('topScore');
 
@@ -87,7 +87,7 @@ const startGame = (event) => {
         enemy.y = -100 * setting.traffic * (i + 1);
         enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
         enemy.style.top = enemy.y + 'px';
-        enemy.style.background = `transparent url(./img/enemy${enemyImg}.png) center / cover no-repeat`;
+        enemy.style.background = `transparent url(./NeedForJS/img/enemy${enemyImg}.png) center / cover no-repeat`;
         gameArea.appendChild(enemy);
         navigation.appendChild(audio);
         if (allow) {
@@ -102,7 +102,7 @@ const startGame = (event) => {
         palm.y = -100 * setting.treeSpeed * (i + 1);
         palm.style.left = Math.floor(Math.random() * (gameAreaSide.offsetWidth - 120)) + 'px';
         palm.style.top = palm.y + 'px';
-        palm.style.background = `transparent url(./img/palm_tree/palm${palmImg}.png) center / cover no-repeat`;
+        palm.style.background = `transparent url(./NeedForJS/img/palm_tree/palm${palmImg}.png) center / cover no-repeat`;
         gameAreaSide.appendChild(palm);
     }
 
@@ -113,7 +113,7 @@ const startGame = (event) => {
         palm.y = -100 * setting.treeSpeed * (i + 1);
         palm.style.left = Math.floor(Math.random() * (gameAreaSide1.offsetWidth - 120)) + 'px';
         palm.style.top = palm.y + 'px';
-        palm.style.background = `transparent url(./img/palm_tree/palm${palmImg}.png) center / cover no-repeat`;
+        palm.style.background = `transparent url(./NeedForJS/img/palm_tree/palm${palmImg}.png) center / cover no-repeat`;
         gameAreaSide1.appendChild(palm);
     }
     
