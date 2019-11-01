@@ -56,7 +56,7 @@ table {
   position: absolute;
   width: 50px;
   height: 100px;
-  background: transparent url("..//NeedForJS/img/player1.png") center/cover no-repeat; }
+  background: transparent url("..//img/player1.png") center/cover no-repeat; }
 
 .game {
   display: flex;
@@ -64,7 +64,7 @@ table {
   justify-content: center;
   padding: 0;
   margin: 0;
-  background: transparent url("..//NeedForJS/img/sand/sand.jpg") center/cover no-repeat; }
+  background: transparent url("..//img/sand/sand.jpg") center/cover no-repeat; }
 
 .gameAreaSide,
 .gameAreaSide1 {
