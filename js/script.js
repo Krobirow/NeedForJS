@@ -1,39 +1,51 @@
+// mobile navigation //
+
+const keyA = document.createElement('button'),
+    keyW = document.createElement('button'),
+    keyD = document.createElement('button'),
+    keyS = document.createElement('button');
+
+keyA.classList.add('btnL');
+keyW.classList.add('btnU');
+keyD.classList.add('btnR');
+keyS.classList.add('btnD');
+keyA.innerText = "left";
+keyW.innerText = "up";
+keyD.innerText = "right";
+keyS.innerText = "down";
+
+// mobile navigation //
+
 const score = document.querySelector('.score'),
     start = document.querySelector('.start'),
     game = document.querySelector('.game'),
     gameArea = document.querySelector('.gameArea'),
-
-    car = document.createElement('div'),
-    trees = document.createElement('div'),
-
-    settingBtns = document.querySelector('.settingBtns'),
     gameAreaSide = document.querySelector('.gameAreaSide'),
     gameAreaSide1 = document.querySelector('.gameAreaSide1'),
-    navigation = document.querySelector('.navigation');
-    
-    
-    let audio = new Audio('../NeedForJS/mus/mus3.mp3');
+    navigation = document.querySelector('.navigation'),
 
+    car = document.createElement('div'),
+    trees = document.createElement('div');
+
+    let audio = new Audio('../NeedForJS/mus/mus3.mp3');
     let topScore = localStorage.getItem('topScore');
 
     car.classList.add('car');
     trees.classList.add('trees');
 
     audio.controls = true;
-    console.log(audio);
     audio.classList.add('audio');
     audio.volume = 0.05;
-
     let allow = false;
     audio.addEventListener('loadeddata', () => {
         allow = true;
     });
 
 const keys = {
-    ArrowUp: false,
-    ArrowDown: false,
-    ArrowRight: false,
-    ArrowLeft: false
+    w: false && keyW,
+    s: false,
+    d: false,
+    a: false
 };
 
 const setting = {
@@ -50,7 +62,6 @@ const getQuantityElementsTrees = heightElement => Math.ceil(gameAreaSide.offsetH
 const getQuantityElementsTrees1 = heightElement => Math.ceil(gameAreaSide1.offsetHeight / heightElement);
 
 const startGame = (event) => {
-
     if (event.target.classList.contains('start')) {
         return;
     }
@@ -66,7 +77,6 @@ const startGame = (event) => {
         setting.speed = 7;
         setting.traffic = 2;
     }
-
     start.classList.add('hide');
     gameArea.innerHTML = '';
     gameAreaSide.innerHTML = '';
@@ -79,7 +89,6 @@ const startGame = (event) => {
         line.y = i * 100;
         gameArea.appendChild(line);
     }
-
     for (let i = 0; i < getQuantityElements(100 * setting.traffic); i++) {
         const enemy = document.createElement('div');
         let enemyImg = Math.floor(Math.random() * 2) + 1;
@@ -94,7 +103,6 @@ const startGame = (event) => {
             audio.play();
         }
     }
-
     for (let i = 0; i < getQuantityElementsTrees(100 * setting.treeSpeed); i++) {
         const palm = document.createElement('div');
         let palmImg = Math.floor(Math.random() * 2) + 1;
@@ -105,7 +113,6 @@ const startGame = (event) => {
         palm.style.background = `transparent url(../NeedForJS/img/palm_tree/palm${palmImg}.png) center / cover no-repeat`;
         gameAreaSide.appendChild(palm);
     }
-
     for (let i = 0; i < getQuantityElementsTrees1(100 * setting.treeSpeed); i++) {
         const palm = document.createElement('div');
         let palmImg = Math.floor(Math.random() * 3) + 1;
@@ -116,7 +123,6 @@ const startGame = (event) => {
         palm.style.background = `transparent url(../NeedForJS/img/palm_tree/palm${palmImg}.png) center / cover no-repeat`;
         gameAreaSide1.appendChild(palm);
     }
-    
     setting.score = 0;
     setting.start = true;
     gameArea.appendChild(car);
@@ -126,10 +132,14 @@ const startGame = (event) => {
     setting.x = car.offsetLeft;
     setting.y = car.offsetTop;
     requestAnimationFrame(playGame);
+
+    gameArea.appendChild(keyA);
+    gameArea.appendChild(keyW);
+    gameArea.appendChild(keyD);
+    gameArea.appendChild(keyS);
 };
 
 const playGame = () => {
-
     if (setting.score > 2000 && setting.level === 0 ) {
         setting.speed++;
         setting.level++;
@@ -140,7 +150,6 @@ const playGame = () => {
         setting.speed++;
         setting.level++;
     }
-
     if (gameArea.style.top = (score.offsetHeight)) {
         gameArea.style.marginTop = '0';
     }
@@ -151,21 +160,18 @@ const playGame = () => {
     moveEnemy();
     moveTrees();
     moveTrees1();
-    if(keys.ArrowLeft && setting.x > 0) {
+    if(keys.a && setting.x > 0) {
         setting.x -= setting.speed;
     }
-    if(keys.ArrowRight && setting.x < (gameArea.offsetWidth - car.offsetWidth)) {
+    if(keys.d && setting.x < (gameArea.offsetWidth - car.offsetWidth)) {
         setting.x += setting.speed;
     }
-
-    if(keys.ArrowUp && setting.y > 0) {
+    if(keys.w && setting.y > 0) {
         setting.y -= setting.speed; 
     }
-
-    if(keys.ArrowDown && setting.y < (gameArea.offsetHeight - car.offsetHeight)) {
+    if(keys.s && setting.y < (gameArea.offsetHeight - car.offsetHeight)) {
         setting.y += setting.speed; 
     }
-
     car.style.left = setting.x + 'px';
     car.style.top = setting.y + 'px';
     if (setting.start){
@@ -199,9 +205,6 @@ const moveRoad = () => {
     });
 };
 
-
-
-
 const moveEnemy = () => {
     let enemy = document.querySelectorAll('.enemy');
     enemy.forEach(item => {
@@ -212,16 +215,14 @@ const moveEnemy = () => {
             carRect.left + 10 <= enemyRect.right &&
             carRect.bottom - 10 >= enemyRect.top) {
                 setting.start = false;
-                console.warn("accident");
                 if (topScore < setting.score) {
                     localStorage.setItem('topScore', setting.score);
                 }
-                
                 audio.pause();
                 start.classList.remove('hide');
                 start.style.top = score.offsetHeight;
+                alert("Game Over! Choose level of difficulty to play again!");
         }
-
         item.y += setting.speed / 2;
         item.style.top = item.y + 'px';
         if (item.y >= gameArea.offsetHeight) {
@@ -255,8 +256,27 @@ const moveTrees1 = () => {
     });
 };
 
-
 start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);
 
+keyA.addEventListener('touchstart', function(e){
+    if(keys.a || keyA && setting.y >= 0) {
+        setting.y -= setting.speed; 
+    }
+});
+keyW.addEventListener('mousedown', function(e){
+    if(keys.w || keyW && setting.y >= 0) {
+        setting.y -= setting.speed; 
+    }
+});
+keyD.addEventListener('keydown', function(e){
+    if(keys.d || keyD && setting.x < (gameArea.offsetWidth - car.offsetWidth)) {
+        setting.x += setting.speed;
+    }
+});
+keyS.addEventListener('click', function(e){
+    if(keys.s || keyS && setting.y < (gameArea.offsetHeight - car.offsetHeight)) {
+        setting.y += setting.speed; 
+    }
+});
