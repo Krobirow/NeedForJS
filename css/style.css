@@ -92,7 +92,7 @@ table {
   flex-shrink: 0;
   justify-content: center;
   width: 300px;
-  height: 700px;
+  height: 500px;
   margin: auto;
   margin-top: 62px;
   overflow: hidden;
@@ -209,7 +209,7 @@ table {
   .game {
     max-width: 900px;
     width: 100%;
-    max-height: 900px;
+    max-height: 500px;
     height: 100%;
   }
   /* .btnL {

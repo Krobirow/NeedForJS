@@ -184,19 +184,10 @@ const startRun = (event) => {
     if(keys.hasOwnProperty(event.key)){
         keys[event.key] = true;
     }
-    TouchEvent.preventDefault();
-    if(keys.hasOwnProperty(event.key)){
-        keys[event.key] = true;
-    }
 };
 
 const stopRun = (event) => {
     event.preventDefault();
-    if(keys.hasOwnProperty(event.key)){
-        keys[event.key] = false;
-    }
-
-    TouchEvent.preventDefault();
     if(keys.hasOwnProperty(event.key)){
         keys[event.key] = false;
     }
