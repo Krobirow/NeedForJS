@@ -156,7 +156,7 @@ table {
   margin: auto; }
 
 .btnL {
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
   bottom: 150px;
   left: 0;
@@ -168,7 +168,7 @@ table {
   border: 1px dotted gray;
 }
 .btnR {
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
   bottom: 150px;
   right: 0;
@@ -180,7 +180,7 @@ table {
   border: 1px dotted gray;
 }
 .btnU {
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
   bottom: 300px;
   left: 90px;
@@ -192,7 +192,7 @@ table {
   border: 1px dotted gray;
 }
 .btnD {
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
   bottom: 0;
   left: 90px;
@@ -204,7 +204,7 @@ table {
   border: 1px dotted gray;
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 1000px) {
   .btnL {
     visibility: visible;
   }
@@ -217,4 +217,4 @@ table {
   .btnD {
     visibility: visible;
   }
-}
+} */

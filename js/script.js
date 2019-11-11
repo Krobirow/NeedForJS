@@ -260,23 +260,23 @@ start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);
 
-keyA.addEventListener('touchstart', function(e){
-    if(keys.a || keyA && setting.y >= 0) {
-        setting.y -= setting.speed; 
-    }
-});
 keyW.addEventListener('mousedown', function(e){
     if(keys.w || keyW && setting.y >= 0) {
         setting.y -= setting.speed; 
     }
 });
-keyD.addEventListener('keydown', function(e){
-    if(keys.d || keyD && setting.x < (gameArea.offsetWidth - car.offsetWidth)) {
-        setting.x += setting.speed;
+keyA.addEventListener('touchstart', function(e){
+    if(keys.a || keyA && setting.y >= 0) {
+        setting.y -= setting.speed; 
     }
 });
 keyS.addEventListener('click', function(e){
     if(keys.s || keyS && setting.y < (gameArea.offsetHeight - car.offsetHeight)) {
         setting.y += setting.speed; 
+    }
+});
+keyD.addEventListener('keydown', function(e){
+    if(keys.d || keyD && setting.x < (gameArea.offsetWidth - car.offsetWidth)) {
+        setting.x += setting.speed;
     }
 });
