@@ -1,9 +1,9 @@
 // mobile navigation //
 
-const keyA = document.createElement('button'),
-    keyW = document.createElement('button'),
-    keyD = document.createElement('button'),
-    keyS = document.createElement('button');
+const keyA = document.createElement('div'),
+    keyW = document.createElement('div'),
+    keyD = document.createElement('div'),
+    keyS = document.createElement('div');
 
 keyA.classList.add('btnL');
 keyW.classList.add('btnU');
