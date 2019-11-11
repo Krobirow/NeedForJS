@@ -205,9 +205,9 @@ table {
   border: 1px dotted gray;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .game {
-    max-width: 800px;
+    max-width: 900px;
     width: 100%;
     max-height: 900px;
     height: 100%;
