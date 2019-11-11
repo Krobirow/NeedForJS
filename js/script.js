@@ -42,7 +42,7 @@ const score = document.querySelector('.score'),
     });
 
 const keys = {
-    w: false && keyW,
+    w: false,
     s: false,
     d: false,
     a: false
@@ -54,7 +54,7 @@ const setting = {
     speed: 2,
     traffic: 3,
     level: 0,
-    treeSpeed: 6
+    treeSpeed: 4
 };
 
 const getQuantityElements = heightElement => Math.ceil(gameArea.offsetHeight / heightElement);
@@ -82,6 +82,7 @@ const startGame = (event) => {
     gameAreaSide.innerHTML = '';
     gameAreaSide1.innerHTML = '';
 
+
     for(let i = 0; i < getQuantityElements(100) + 1; i++) {
         const line = document.createElement('div');
         line.classList.add('line');
@@ -103,21 +104,21 @@ const startGame = (event) => {
             audio.play();
         }
     }
-    for (let i = 0; i < getQuantityElementsTrees(100 * setting.treeSpeed); i++) {
+    for (let i = 0; i < getQuantityElementsTrees(50 * setting.treeSpeed); i++) {
         const palm = document.createElement('div');
-        let palmImg = Math.floor(Math.random() * 2) + 1;
+        let palmImg = Math.floor(Math.random() * 3) + 1;
         palm.classList.add('palm');
-        palm.y = -100 * setting.treeSpeed * (i + 1);
+        palm.y = -50 * setting.treeSpeed * (i + 1);
         palm.style.left = Math.floor(Math.random() * (gameAreaSide.offsetWidth - 120)) + 'px';
         palm.style.top = palm.y + 'px';
         palm.style.background = `transparent url(../NeedForJS/img/palm_tree/palm${palmImg}.png) center / cover no-repeat`;
         gameAreaSide.appendChild(palm);
     }
-    for (let i = 0; i < getQuantityElementsTrees1(100 * setting.treeSpeed); i++) {
+    for (let i = 0; i < getQuantityElementsTrees1(50 * setting.treeSpeed); i++) {
         const palm = document.createElement('div');
         let palmImg = Math.floor(Math.random() * 3) + 1;
         palm.classList.add('palm');
-        palm.y = -100 * setting.treeSpeed * (i + 1);
+        palm.y = -50 * setting.treeSpeed * (i + 1);
         palm.style.left = Math.floor(Math.random() * (gameAreaSide1.offsetWidth - 120)) + 'px';
         palm.style.top = palm.y + 'px';
         palm.style.background = `transparent url(../NeedForJS/img/palm_tree/palm${palmImg}.png) center / cover no-repeat`;
@@ -150,9 +151,6 @@ const playGame = () => {
         setting.speed++;
         setting.level++;
     }
-    if (gameArea.style.top = (score.offsetHeight)) {
-        gameArea.style.marginTop = '0';
-    }
     gameArea.style.top = score.offsetHeight;
     setting.score += setting.speed;
     score.innerHTML = 'SCORE<br>' + setting.score;
@@ -160,7 +158,7 @@ const playGame = () => {
     moveEnemy();
     moveTrees();
     moveTrees1();
-    if(keys.a && setting.x > 0) {
+    if(keys.a && setting.x > 0 ) {
         setting.x -= setting.speed;
     }
     if(keys.d && setting.x < (gameArea.offsetWidth - car.offsetWidth)) {
@@ -219,9 +217,10 @@ const moveEnemy = () => {
                     localStorage.setItem('topScore', setting.score);
                 }
                 audio.pause();
-                start.classList.remove('hide');
-                start.style.top = score.offsetHeight;
                 alert("Game Over! Choose level of difficulty to play again!");
+                start.classList.remove('hide');
+                start.style.top = '61' + 'px';
+
         }
         item.y += setting.speed / 2;
         item.style.top = item.y + 'px';
@@ -259,16 +258,14 @@ const moveTrees1 = () => {
 start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);
-document.addEventListener('touchmove', startRun);
-document.addEventListener('touchmove', stopRun);
 
 keyW.addEventListener('touchmove', function(e){
-    if(keys.w || keyW && setting.y >= 0) {
+    if(keys.w || keyW && setting.y > 0) {
         setting.y -= setting.speed; 
     } 
 });
 keyA.addEventListener('touchmove', function(e){
-    if(keys.a || keyA && setting.y >= 0) {
+    if(keys.a || keyA && setting.x > 0) {
         setting.x -= setting.speed; 
     }
 });
