@@ -23,6 +23,7 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
+  overflow-x: hidden;
   line-height: 1; }
 
 ol,
