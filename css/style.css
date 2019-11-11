@@ -205,8 +205,11 @@ table {
   border: 1px dotted gray;
 }
 
-/* @media screen and (max-width: 1000px) {
-  .btnL {
+@media screen and (max-width: 800px) {
+  .game {
+    max-width: 800px;
+  }
+  /* .btnL {
     visibility: visible;
   }
   .btnR {
@@ -217,5 +220,5 @@ table {
   }
   .btnD {
     visibility: visible;
-  }
-} */
+  } */
+}
