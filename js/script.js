@@ -266,8 +266,10 @@ const moveTrees1 = () => {
 };
 
 start.addEventListener('click', startGame);
-document.addEventListener('keydown', 'touchmove', startRun);
-document.addEventListener('keyup', 'touchmove', stopRun);
+document.addEventListener('keydown', startRun);
+document.addEventListener('keyup', stopRun);
+document.addEventListener('touchmove', startRun);
+document.addEventListener('touchmove', stopRun);
 
 keyW.addEventListener('touchmove', function(e){
     if(keys.w || keyW && setting.y >= 0) {
