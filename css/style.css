@@ -24,6 +24,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   overflow-x: hidden;
+  overflow-y: hidden;
   line-height: 1; }
 
 ol,
@@ -92,7 +93,7 @@ table {
   flex-shrink: 0;
   justify-content: center;
   width: 300px;
-  height: 700px;
+  height: 600px;
   margin: auto;
   margin-top: 62px;
   overflow: hidden;
