@@ -184,10 +184,19 @@ const startRun = (event) => {
     if(keys.hasOwnProperty(event.key)){
         keys[event.key] = true;
     }
+    TouchEvent.preventDefault();
+    if(keys.hasOwnProperty(event.key)){
+        keys[event.key] = true;
+    }
 };
 
 const stopRun = (event) => {
     event.preventDefault();
+    if(keys.hasOwnProperty(event.key)){
+        keys[event.key] = false;
+    }
+
+    TouchEvent.preventDefault();
     if(keys.hasOwnProperty(event.key)){
         keys[event.key] = false;
     }
@@ -257,8 +266,8 @@ const moveTrees1 = () => {
 };
 
 start.addEventListener('click', startGame);
-document.addEventListener('keydown', startRun);
-document.addEventListener('keyup', stopRun);
+document.addEventListener('keydown', 'touchmove', startRun);
+document.addEventListener('keyup', 'touchmove', stopRun);
 
 keyW.addEventListener('touchmove', function(e){
     if(keys.w || keyW && setting.y >= 0) {
@@ -267,9 +276,7 @@ keyW.addEventListener('touchmove', function(e){
 });
 keyA.addEventListener('touchmove', function(e){
     if(keys.a || keyA && setting.y >= 0) {
-        setting.x--; 
-    } else if (keys.a || keyA && setting.y >= 0) {
-        setting.x--;
+        setting.x -= setting.speed; 
     }
 });
 keyS.addEventListener('touchmove', function(e){
