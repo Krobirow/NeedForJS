@@ -267,7 +267,9 @@ keyW.addEventListener('mousedown', function(e){
 });
 keyA.addEventListener('touchstart', function(e){
     if(keys.a || keyA && setting.y >= 0) {
-        setting.x++;
+        setting.x--; 
+    } else if (keys.a || keyA && setting.y >= 0) {
+        setting.x--;
     }
 });
 keyS.addEventListener('click', function(e){
